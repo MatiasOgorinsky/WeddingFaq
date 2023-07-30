@@ -12,6 +12,9 @@ const AppWrapper = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+const InfoWrapper = styled.div`
+ margin-top: 20px;
+`;
 
 const App: React.FC = () => {
   const faqData: FaqData[] = [
@@ -45,7 +48,6 @@ const App: React.FC = () => {
         es: 'La versión más reciente de React es la 17.x en el momento de la creación de este proyecto.',
       },
     },
-    // Add more questions and answers in different languages as desired
   ];
 
   return (
@@ -53,8 +55,10 @@ const App: React.FC = () => {
       <GlobalStyles />
       <AppWrapper>
         <LanguageSelector />
+        <InfoWrapper>
         <h1>Frequently Asked Questions</h1>
         <Accordion faqData={faqData} />
+        </InfoWrapper>
       </AppWrapper>
     </LanguageProvider>
   );

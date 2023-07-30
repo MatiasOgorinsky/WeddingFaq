@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import LanguageContext from '../contexts/LanguageContext';
+import argentina from './flags/Flag_of_Argentina.svg.png'
 
 const FlagsWrapper = styled.div`
   position: absolute;
@@ -33,7 +34,7 @@ const LanguageSelector: React.FC = () => {
   return (
     <FlagsWrapper>
       <FlagButton onClick={() => handleChangeLanguage('es')}>
-      <img src="/flags/uk.png" alt="Argentinian Flag" />
+      <img src={argentina} alt="Argentinian Flag" />
       </FlagButton>
       <FlagButton onClick={() => handleChangeLanguage('en')}>
         <img src="/flags/uk.png" alt="English Flag" />
