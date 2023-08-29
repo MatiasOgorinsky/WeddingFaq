@@ -3,9 +3,10 @@ import React from 'react';
 import GlobalStyles from './GlobalStyles';
 import Accordion from './components/Accordion';
 import LanguageSelector from './components/LanguageSelector';
-import { LanguageProvider } from './contexts/LanguageContext';
+import  { LanguageProvider } from './contexts/LanguageContext';
 import { FaqData } from './components/Accordion';
 import styled from 'styled-components';
+import CountdownTimer from './components/Countdown';
 
 const AppWrapper = styled.div`
   display: flex;
@@ -49,6 +50,8 @@ const App: React.FC = () => {
       },
     },
   ];
+  
+  const targetDate = new Date(2023, 10, 2);
 
   return (
     <LanguageProvider>
@@ -56,8 +59,9 @@ const App: React.FC = () => {
       <AppWrapper>
         <LanguageSelector />
         <InfoWrapper>
-        <h1>Frequently Asked Questions</h1>
-        <Accordion faqData={faqData} />
+          <h1>Frequently Asked Questions</h1>
+          <CountdownTimer targetDate={targetDate} />
+          <Accordion faqData={faqData} />
         </InfoWrapper>
       </AppWrapper>
     </LanguageProvider>

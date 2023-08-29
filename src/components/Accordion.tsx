@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import { Accordion as MuiAccordion, AccordionDetails as MuiAccordionDetails, AccordionSummary as MuiAccordionSummary, Typography } from '@mui/material';
-import { LanguageContext } from '../contexts/LanguageContext'; // Update the path if necessary
+import { LanguageContext } from '../contexts/LanguageContext';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 
 const AccordionWrapper = styled.div`
@@ -15,9 +15,11 @@ const CustomAccordion = styled(MuiAccordion)`
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 10px;
+    width: 500px; 
+    
   }
 `;
-
+// addapt this const
 const AccordionSummary = styled(MuiAccordionSummary)`
   && {
     background-color: #f0f0f0;
@@ -51,6 +53,7 @@ export interface FaqData {
 
 const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
   const [expanded, setExpanded] = useState<string | false>(false);
+
   const { language } = useContext(LanguageContext);
 
   const handleChange = (panel: string) => (event: React.ChangeEvent<{}>, isExpanded: boolean) => {
