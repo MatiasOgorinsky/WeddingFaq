@@ -9,7 +9,15 @@ const AccordionWrapper = styled.div`
   max-width: 600px;
   margin: 0 auto;
 `;
+const StyledButton = styled.button`
+  border: none;
+  padding: 5px 10px;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+  background:none
 
+`;
 const CustomAccordion = styled(MuiAccordion)`
   && {
     border: 1px solid #ccc;
@@ -64,6 +72,12 @@ export interface FaqData {
     he?: string;
     da?: string;
   };
+  indicationText?: {
+    en?: string;
+    es?: string;
+    he?: string;
+    da?: string;
+  };
   iframeUrl?: string;
   link?: string;
 }
@@ -86,6 +100,20 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
           </AccordionSummary>
           <AccordionDetails>
             <Typography>{item.answer[language as keyof typeof item.answer]}</Typography>
+            {item.iframeUrl && (
+              <>
+                {item.iframeUrl && (
+                  <>
+                    {item.indicationText && (
+                      <StyledButton>
+                        {item.indicationText?.[language as keyof typeof item.indicationText]}
+                      </StyledButton>
+                    )}
+                    <iframe src={item.iframeUrl} width="100%" height="450" title="Map for Venue"></iframe>
+                  </>
+                )}
+              </>
+            )}
           </AccordionDetails>
         </CustomAccordion>
       ))}

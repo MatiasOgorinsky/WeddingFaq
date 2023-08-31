@@ -46,12 +46,17 @@ const App: React.FC = () => {
     {
       question: {
         en: 'Where can I park?',
-        es: '¿Cuál es la versión más reciente de React?',
+        es: '¿Donde puedo estacionar?',
       },
       answer: {
-        en: 'The latest version of React is 17.x at the time of creating this project.',
-        es: 'La versión más reciente de React es la 17.x en el momento de la creación de este proyecto.',
+        en: '',
+        es: '',
       },
+      indicationText:{
+        en:'Tap here to open in the app',
+        es:'Click aca para abrir en la app',
+      },
+      iframeUrl: "https://embed.waze.com/iframe?zoom=16&lat=32.192881&lon=34.885046&ct=livemap&pin=1",
     },
     {
       question: {
