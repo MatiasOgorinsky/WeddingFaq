@@ -39,9 +39,18 @@ const App: React.FC = () => {
         es: '¿Cómo llegar?',
       },
       answer: {
-        en: 'Here the link to waze to the venue',
-        es: 'React es una biblioteca JavaScript para construir interfaces de usuario interactivas.',
+        en: '',
+        es: '',
       },
+      address: {
+        en: `Address: Ha-Tidhar St 2, Ra'anana`,
+        es: `Dirección: Ha-Tidhar St 2, Ra'anana`,
+      },
+      indicationText:{
+        en:'Tap here to open in the app',
+        es:'Click aca para abrir en la app',
+      },
+      iframeUrlParking: "https://embed.waze.com/iframe?zoom=16&lat=32.192881&lon=34.885046&ct=livemap&pin=1"
     },
     {
       question: {
@@ -56,7 +65,11 @@ const App: React.FC = () => {
         en:'Tap here to open in the app',
         es:'Click aca para abrir en la app',
       },
-      iframeUrl: "https://embed.waze.com/iframe?zoom=16&lat=32.192881&lon=34.885046&ct=livemap&pin=1",
+      iframeUrlParking: "https://embed.waze.com/iframe?zoom=16&lat=32.192881&lon=34.885046&ct=livemap&pin=1",
+      accordionDetails:{
+        en:'The parking has a cost of ₪25 for the whole evening, ask for the voucher at the entrance',
+        es:'The parking has a cost of ₪25 for the whole evening, ask for the voucher at the entrance',
+      }
     },
     {
       question: {
@@ -64,13 +77,42 @@ const App: React.FC = () => {
         es: '¿Cuál es la versión más reciente de React?',
       },
       answer: {
-        en: 'The latest version of React is 17.x at the time of creating this project.',
-        es: 'La versión más reciente de React es la 17.x en el momento de la creación de este proyecto.',
+        en: '',
+        es: '',
+      },
+      accordionDetails:{
+        en:'The promo code is GRUNCAROLINE',
+        es:'El promo code para obtener un descuento es GRUNCAROLINE',
+      },
+    },
+    {
+      question: {
+        en: 'Invitation details',
+        es: '¿Cuál es la versión más reciente de React?',
+      },
+      answer: {
+        en: '',
+        es: '',
+      },
+      showInvitation:true,
+    },
+    {
+      question: {
+        en: 'Gift Details',
+        es: '¿Cuál es la versión más reciente de React?',
+      },
+      answer: {
+        en: '',
+        es: '',
+      },
+      accordionDetails:{
+        en:'The promo code is GRUNCAROLINE',
+        es:'El promo code para obtener un descuento es GRUNCAROLINE',
       },
     },
   ];
 
-  const targetDate = new Date(2023, 10, 2);
+  const targetDate = new Date(2023, 10, 2, 19,0);
 
   return (
     <LanguageProvider>

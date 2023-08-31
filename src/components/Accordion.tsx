@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Accordion as MuiAccordion, AccordionDetails as MuiAccordionDetails, AccordionSummary as MuiAccordionSummary, Typography } from '@mui/material';
 import { LanguageContext } from '../contexts/LanguageContext';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
+import invitation from '../images/invitation.jpeg'
 
 const AccordionWrapper = styled.div`
   width: 100%;
@@ -48,16 +49,6 @@ const StyledExpandMoreIcon = styled(ExpandMoreOutlinedIcon)`
   }
 `;
 
-// export interface FaqData {
-//   question: {
-//     en: string;
-//     es: string;
-//   };
-//   answer: {
-//     en: string;
-//     es: string;
-//   };
-// }
 
 export interface FaqData {
   question: {
@@ -78,8 +69,21 @@ export interface FaqData {
     he?: string;
     da?: string;
   };
-  iframeUrl?: string;
+  accordionDetails?: {
+    en?: string;
+    es?: string;
+    he?: string;
+    da?: string;
+  };
+  iframeUrlParking?: string;
   link?: string;
+  address?: {
+    en?: string;
+    es?: string;
+    he?: string;
+    da?: string;
+  };
+  showInvitation?: boolean;
 }
 
 const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
@@ -100,20 +104,26 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
           </AccordionSummary>
           <AccordionDetails>
             <Typography>{item.answer[language as keyof typeof item.answer]}</Typography>
-            {item.iframeUrl && (
+            {item.address && (
+              <p>{item.address?.[language as keyof typeof item.address]}</p>
+            )}
+            <p>{item.accordionDetails?.[language as keyof typeof item.accordionDetails]}</p>
+            {item.iframeUrlParking && (
               <>
-                {item.iframeUrl && (
+                {item.indicationText && (
                   <>
-                    {item.indicationText && (
-                      <StyledButton>
-                        {item.indicationText?.[language as keyof typeof item.indicationText]}
-                      </StyledButton>
-                    )}
-                    <iframe src={item.iframeUrl} width="100%" height="450" title="Map for Venue"></iframe>
+
+                    <StyledButton>
+
+                      {item.indicationText?.[language as keyof typeof item.indicationText]}
+                    </StyledButton>
                   </>
                 )}
+                <iframe src={item.iframeUrlParking} width="100%" height="450" title="Map for Venue"></iframe>
+                <p>closest train station : ranana west</p>
               </>
             )}
+            {item.showInvitation && (<img src={invitation} alt="image not found" width="90%" />)}
           </AccordionDetails>
         </CustomAccordion>
       ))}
