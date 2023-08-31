@@ -7,6 +7,7 @@ const CountdownContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center; /* Align text within the container */
+  margin-bottom: 20px;
 `;
 
 const CountdownRow = styled.div`
