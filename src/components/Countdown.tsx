@@ -23,18 +23,18 @@ const CountdownItem = styled.div`
   .countdown-number {
     font-size: 2rem;
     font-weight: bold;
-    color: #ff6b6b; /* Choose your color */
+    color: #DD5353; /* Choose your color */
   }
 
   .countdown-label {
     font-size: 0.8rem;
-    color: #555;
+    color: #8D8DAA;
   }
 `;
 
 const CountdownText = styled.div`
-  font-size: 1.2rem;
-  color: #333;
+font-size: 0.8rem;
+color: #555;
 `;
 
 interface CountdownTimerProps {
@@ -101,7 +101,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
           </CountdownItem>
         )}
              <CountdownItem>
-          <FaRegClock size={36} />
+          {/* <FaRegClock size={36} /> */}
         </CountdownItem>
       </CountdownRow>
       

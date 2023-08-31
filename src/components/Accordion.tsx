@@ -9,6 +9,7 @@ const AccordionWrapper = styled.div`
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+
 `;
 const StyledButton = styled.button`
   border: none;
@@ -26,6 +27,7 @@ const CustomAccordion = styled(MuiAccordion)`
     margin-bottom: 10px;
     width: 100%; 
     
+    
   }
 `;
 // addapt this const
@@ -34,9 +36,10 @@ const AccordionSummary = styled(MuiAccordionSummary)`
     background-color: #f0f0f0;
     padding: 10px;
     font-weight: bold;
+    background:#FAF3F0;
   }
 `;
-
+// background:#FAF3F0;
 const AccordionDetails = styled(MuiAccordionDetails)`
   && {
     padding: 10px;
@@ -75,6 +78,12 @@ export interface FaqData {
     he?: string;
     da?: string;
   };
+  promoCodeDetails?: {
+    en?: string;
+    es?: string;
+    he?: string;
+    da?: string;
+  };
   iframeUrlParking?: string;
   link?: string;
   address?: {
@@ -108,6 +117,11 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
               <p>{item.address?.[language as keyof typeof item.address]}</p>
             )}
             <p>{item.accordionDetails?.[language as keyof typeof item.accordionDetails]}</p>
+            {item.promoCodeDetails &&( 
+              <p>{item.promoCodeDetails?.[language as keyof typeof item.promoCodeDetails]}<b>grunwed</b></p>
+
+            )}
+            
             {item.iframeUrlParking && (
               <>
                 {item.indicationText && (
@@ -120,7 +134,7 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
                   </>
                 )}
                 <iframe src={item.iframeUrlParking} width="100%" height="450" title="Map for Venue"></iframe>
-                <p>closest train station : ranana west</p>
+               {item.address &&(<p>closest train station : ranana west</p>)} 
               </>
             )}
             {item.showInvitation && (<img src={invitation} alt="image not found" width="90%" />)}

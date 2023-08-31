@@ -74,21 +74,21 @@ const App: React.FC = () => {
     {
       question: {
         en: 'Staying at the hotel? (must know)',
-        es: '¿Cuál es la versión más reciente de React?',
+        es: '¿Te hospedas en el hotel?',
       },
       answer: {
         en: '',
         es: '',
       },
-      accordionDetails:{
-        en:'The promo code is GRUNCAROLINE',
-        es:'El promo code para obtener un descuento es GRUNCAROLINE',
+      promoCodeDetails:{
+        en:'The promo code to get a discount is ',
+        es:'El promo code para obtener un descuento es ',
       },
     },
     {
       question: {
         en: 'Invitation details',
-        es: '¿Cuál es la versión más reciente de React?',
+        es: 'Invitación',
       },
       answer: {
         en: '',
@@ -99,15 +99,11 @@ const App: React.FC = () => {
     {
       question: {
         en: 'Gift Details',
-        es: '¿Cuál es la versión más reciente de React?',
+        es: 'Detalle regalo',
       },
       answer: {
         en: '',
         es: '',
-      },
-      accordionDetails:{
-        en:'The promo code is GRUNCAROLINE',
-        es:'El promo code para obtener un descuento es GRUNCAROLINE',
       },
     },
   ];

@@ -6,7 +6,7 @@ import usaflag from "./flags/usaflag.png";
 
 const FlagsWrapper = styled.div`
   position: absolute;
-  top: 10px;
+  top: 20px;
   right: 10px;
   display: flex;
   gap: 10px;
