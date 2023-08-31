@@ -3,7 +3,7 @@ import React from 'react';
 import GlobalStyles from './GlobalStyles';
 import Accordion from './components/Accordion';
 import LanguageSelector from './components/LanguageSelector';
-import  { LanguageProvider } from './contexts/LanguageContext';
+import { LanguageProvider } from './contexts/LanguageContext';
 import { FaqData } from './components/Accordion';
 import styled from 'styled-components';
 import CountdownTimer from './components/Countdown';
@@ -12,11 +12,25 @@ const AppWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-const InfoWrapper = styled.div`
- margin-top: 20px;
+  padding: 20px;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `;
 
+const InfoWrapper = styled.div`
+  margin-top: 20px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center; 
+
+  @media (max-width: 768px) {
+    max-width: 100%; 
+    margin-top: 20px;
+
+  }
+`;
 const App: React.FC = () => {
   const faqData: FaqData[] = [
     {
@@ -50,7 +64,7 @@ const App: React.FC = () => {
       },
     },
   ];
-  
+
   const targetDate = new Date(2023, 10, 2);
 
   return (

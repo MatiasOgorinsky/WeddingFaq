@@ -15,7 +15,7 @@ const CustomAccordion = styled(MuiAccordion)`
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 10px;
-    width: 500px; 
+    width: 100%; 
     
   }
 `;
@@ -40,15 +40,32 @@ const StyledExpandMoreIcon = styled(ExpandMoreOutlinedIcon)`
   }
 `;
 
+// export interface FaqData {
+//   question: {
+//     en: string;
+//     es: string;
+//   };
+//   answer: {
+//     en: string;
+//     es: string;
+//   };
+// }
+
 export interface FaqData {
   question: {
     en: string;
     es: string;
+    he?: string;
+    da?: string;
   };
   answer: {
     en: string;
     es: string;
+    he?: string;
+    da?: string;
   };
+  iframeUrl?: string;
+  link?: string;
 }
 
 const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
