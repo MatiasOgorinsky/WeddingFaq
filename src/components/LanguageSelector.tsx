@@ -12,10 +12,16 @@ const FlagsWrapper = styled.div`
   gap: 10px;
 `;
 
-const FlagButton = styled.button`
-  border: none;
+const FlagButton = styled.button<{ isSelected?: string }>`
+  display: flex;
+  justify-content: center;  
+  align-items: center;      
   background-color: transparent;
   cursor: pointer;
+  border: ${({ isSelected }) => (isSelected === "en" || isSelected === "es" ? "1px solid" : "none")};
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 
   img {
     width: 24px;
@@ -24,6 +30,8 @@ const FlagButton = styled.button`
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
   }
 `;
+
+
 
 const LanguageSelector: React.FC = () => {
   const { language, setLanguage } = useContext(LanguageContext);
@@ -34,14 +42,20 @@ const LanguageSelector: React.FC = () => {
 
   return (
     <FlagsWrapper>
-      <FlagButton onClick={() => handleChangeLanguage("en")}>
+      <FlagButton
+        onClick={() => handleChangeLanguage("en")}
+        isSelected={language === "en" ? "en" : undefined}
+      >
         <img src={usaflag} alt="English" />
       </FlagButton>
-      <FlagButton onClick={() => handleChangeLanguage("es")}>
+      <FlagButton
+        onClick={() => handleChangeLanguage("es")}
+        isSelected={language === "es" ? "es" : undefined}
+      >
         <img src={argentina} alt="Spanish" />
       </FlagButton>
 
-      {/* Agregar más botones de banderas según los idiomas que desees agregar */}
+      {/* Add more flag buttons for other languages if needed */}
     </FlagsWrapper>
   );
 };
