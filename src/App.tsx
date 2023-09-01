@@ -13,11 +13,37 @@ const AppWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  background-color: rgba(128, 128, 128, 0.1);
+
+  
+  /* Add a semi-transparent overlay */
+  &::before {
+    content: '';
+    background-color: rgba(128, 128, 128, 0.5); /* Adjust the gray background color and opacity as needed */
+    background-color:red;
+  }
 
   @media (max-width: 768px) {
     padding: 10px;
   }
 `;
+
+const WeddingTitle = styled.h1`
+font-family: 'Dancing Script', cursive;
+font-size: 40px; // Adjust the font size to make it bigger
+font-weight: 100;
+  text-align: center;
+  margin-bottom: 20px;
+  // Add any other styles you want
+`;
+
+
+
+
+
 
 const InfoWrapper = styled.div`
   margin-top: 20px;
@@ -46,9 +72,9 @@ const App: React.FC = () => {
         en: `Address: Ha-Tidhar St 2, Ra'anana`,
         es: `Dirección: Ha-Tidhar St 2, Ra'anana`,
       },
-      indicationText:{
-        en:'Tap here to open in the app',
-        es:'Click aca para abrir en la app',
+      indicationText: {
+        en: 'Tap here to open in the app',
+        es: 'Click aca para abrir en la app',
       },
       iframeUrlParking: "https://embed.waze.com/iframe?zoom=16&lat=32.192881&lon=34.885046&ct=livemap&pin=1"
     },
@@ -61,14 +87,14 @@ const App: React.FC = () => {
         en: '',
         es: '',
       },
-      indicationText:{
-        en:'Tap here to open in the app',
-        es:'Click aca para abrir en la app',
+      indicationText: {
+        en: 'Tap here to open in the app',
+        es: 'Click aca para abrir en la app',
       },
       iframeUrlParking: "https://embed.waze.com/iframe?zoom=16&lat=32.192881&lon=34.885046&ct=livemap&pin=1",
-      accordionDetails:{
-        en:'The parking has a cost of ₪25 for the whole evening, ask for the voucher at the entrance',
-        es:'The parking has a cost of ₪25 for the whole evening, ask for the voucher at the entrance',
+      accordionDetails: {
+        en: 'Ask for your parking voucher at the reception so you can park without cost ',
+        es: 'Pedi tu voucher en la recepción asi podés estacionar sin costo alguno',
       }
     },
     {
@@ -80,9 +106,9 @@ const App: React.FC = () => {
         en: '',
         es: '',
       },
-      promoCodeDetails:{
-        en:'The promo code to get a discount is ',
-        es:'El promo code para obtener un descuento es ',
+      promoCodeDetails: {
+        en: 'The promo code to get a discount is ',
+        es: 'El promo code para obtener un descuento es ',
       },
     },
     {
@@ -94,7 +120,7 @@ const App: React.FC = () => {
         en: '',
         es: '',
       },
-      showInvitation:true,
+      showInvitation: true,
     },
     {
       question: {
@@ -108,20 +134,23 @@ const App: React.FC = () => {
     },
   ];
 
-  const targetDate = new Date(2023, 10, 2, 19,0);
+  const targetDate = new Date(2023, 10, 2, 19, 0);
 
   return (
+
     <LanguageProvider>
       <GlobalStyles />
       <AppWrapper>
         <LanguageSelector />
         <InfoWrapper>
-          <h1>Frequently Asked Questions</h1>
+          <WeddingTitle>Caroline & Matias's Wedding</WeddingTitle>
+          {/* <h1>Frequently Asked Questions</h1> */}
           <CountdownTimer targetDate={targetDate} />
           <Accordion faqData={faqData} />
         </InfoWrapper>
       </AppWrapper>
     </LanguageProvider>
+
   );
 };
 

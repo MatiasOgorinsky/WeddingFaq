@@ -1,44 +1,55 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { FaRegClock } from 'react-icons/fa';
 
 const CountdownContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center; /* Align text within the container */
+  text-align: center;
   margin-bottom: 20px;
+  background-color: #FAF3F0; 
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); 
 `;
 
 const CountdownRow = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 1rem; /* Add margin to separate rows */
+  margin-top: 1rem;
 `;
 
 const CountdownItem = styled.div`
   text-align: center;
   margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
-  .countdown-number {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #DD5353; /* Choose your color */
-  }
+const CountdownNumber = styled.div`
+  font-size: 2rem;
+  font-weight: bold;
+  color: #9A3B3B; /* White text color */
+  -webkit-text-stroke: 0.5px black; /* Thin black border for WebKit browsers */
+  text-stroke: 0.5px black; /* Thin black border for non-WebKit browsers */
+  padding: 5px 10px; /* Add padding to the number */
+`;
 
-  .countdown-label {
-    font-size: 0.8rem;
-    color: #8D8DAA;
-  }
+
+
+const CountdownLabel = styled.div`
+  font-size: 0.8rem;
+  color: #8D8DAA; /* Grey color for labels */
 `;
 
 const CountdownText = styled.div`
-font-size: 0.8rem;
-color: #555;
+  font-size: 0.8rem;
+  color: #555;
 `;
 
 interface CountdownTimerProps {
-  targetDate: number | Date; // Specify the type here (timestamp or Date)
+  targetDate: number | Date;
 }
 
 const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
@@ -78,36 +89,33 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
       <CountdownRow>
         {countdown.days !== undefined && (
           <CountdownItem>
-            <div className="countdown-number">{countdown.days}</div>
-            <div className="countdown-label">Days</div>
+            <CountdownNumber>{countdown.days}</CountdownNumber>
+            <CountdownLabel>Days</CountdownLabel>
           </CountdownItem>
         )}
         {countdown.hours !== undefined && (
           <CountdownItem>
-            <div className="countdown-number">{countdown.hours}</div>
-            <div className="countdown-label">Hours</div>
+            <CountdownNumber>{countdown.hours}</CountdownNumber>
+            <CountdownLabel>Hours</CountdownLabel>
           </CountdownItem>
         )}
         {countdown.minutes !== undefined && (
           <CountdownItem>
-            <div className="countdown-number">{countdown.minutes}</div>
-            <div className="countdown-label">Minutes</div>
+            <CountdownNumber>{countdown.minutes}</CountdownNumber>
+            <CountdownLabel>Minutes</CountdownLabel>
           </CountdownItem>
         )}
         {countdown.seconds !== undefined && (
           <CountdownItem>
-            <div className="countdown-number">{countdown.seconds}</div>
-            <div className="countdown-label">Seconds</div>
+            <CountdownNumber>{countdown.seconds}</CountdownNumber>
+            <CountdownLabel>Seconds</CountdownLabel>
           </CountdownItem>
         )}
-             <CountdownItem>
-          {/* <FaRegClock size={36} /> */}
-        </CountdownItem>
+
       </CountdownRow>
-      
+
       <CountdownRow>
         <CountdownText>to our wedding</CountdownText>
-   
       </CountdownRow>
     </CountdownContainer>
   );
