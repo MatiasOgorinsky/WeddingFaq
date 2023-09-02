@@ -3,51 +3,45 @@ import styled from 'styled-components';
 import { Accordion as MuiAccordion, AccordionDetails as MuiAccordionDetails, AccordionSummary as MuiAccordionSummary, Typography } from '@mui/material';
 import { LanguageContext } from '../contexts/LanguageContext';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
-import invitation from '../images/invitation.jpeg'
+import invitation from '../images/invitation.jpeg';
+import downloadsIcon from "../images/downloads.png";
 
 const AccordionWrapper = styled.div`
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-
 `;
-// text-align: center
+
 const StyledButton = styled.button`
   border: none;
   padding: 5px 10px;
   text-decoration: underline;
   cursor: pointer;
   font-weight: bold;
-  background:none
-
+  background: none;
 `;
+
 const CustomAccordion = styled(MuiAccordion)`
   && {
     border: 1px solid #ccc;
     margin-bottom: 10px;
-    width: 100%; 
-    border-radius: 8px; /* Apply border-radius to all corners */
-    overflow: hidden; /* Ensure rounded corners are displayed */
-    
-    
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
   }
 `;
-// addapt this const
+
 const AccordionSummary = styled(MuiAccordionSummary)`
   && {
-
     padding: 10px;
     font-weight: bold;
-    background-color:#FAF3F0;
-  
-
+    background-color: #FAF3F0;
   }
 `;
-// background:#FAF3F0;
+
 const AccordionDetails = styled(MuiAccordionDetails)`
   && {
     padding: 10px;
-
   }
 `;
 
@@ -56,10 +50,26 @@ const StyledExpandMoreIcon = styled(ExpandMoreOutlinedIcon)`
     color: #000;
   }
 `;
-const DownloadButton = styled(StyledButton)`
 
+const DownloadButton = styled(StyledButton)`
+  display: flex;
+  align-items: center;
 `;
 
+const Icon = styled.span`
+  background: url(${downloadsIcon}) no-repeat;
+  background-size: 16px 16px;
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin:10px;
+`;
 
 export interface FaqData {
   question: {
@@ -105,7 +115,6 @@ export interface FaqData {
 
 const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
   const [expanded, setExpanded] = useState<string | false>(false);
-
   const { language } = useContext(LanguageContext);
 
   const handleChange = (panel: string) => (event: React.ChangeEvent<{}>, isExpanded: boolean) => {
@@ -113,20 +122,15 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
   };
 
   function downloadInvitation(item: FaqData) {
-    // Create a temporary anchor element
     const anchor = document.createElement('a');
-    anchor.href = invitation; // Set the href to the image URL
-    anchor.download = 'invitation.jpg'; // Specify the desired filename
-
-    // Trigger a click event on the anchor element to initiate the download
+    anchor.href = invitation;
+    anchor.download = 'invitation.jpg';
     anchor.click();
-
-    // Clean up the temporary anchor element
     anchor.remove();
   }
 
   const openWazeLink = () => {
-    window.open('https://waze.com/ul/hsv8z1u3yr', '_blank'); // Open the link in a new tab
+    window.open('https://waze.com/ul/hsv8z1u3yr', '_blank');
   };
 
   return (
@@ -144,14 +148,12 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
             <p>{item.accordionDetails?.[language as keyof typeof item.accordionDetails]}</p>
             {item.promoCodeDetails && (
               <p>{item.promoCodeDetails?.[language as keyof typeof item.promoCodeDetails]}<b>grunwed</b></p>
-
             )}
 
             {item.iframeUrlParking && (
               <>
                 {item.indicationText && (
                   <>
-
                     <StyledButton onClick={openWazeLink}>
                       {item.indicationText?.[language as keyof typeof item.indicationText]}
                     </StyledButton>
@@ -163,7 +165,12 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
             )}
             {item.showInvitation && (
               <>
-                <DownloadButton onClick={() => downloadInvitation(item)}>Download Invitation</DownloadButton>
+                <ButtonContainer>
+                  <Typography>Download invitation</Typography>
+                  <DownloadButton onClick={() => downloadInvitation(item)}>
+                    <Icon />
+                  </DownloadButton>
+                </ButtonContainer>
                 <img src={invitation} alt="image not found" width="90%" />
               </>
             )}
