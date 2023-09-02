@@ -11,6 +11,7 @@ const AccordionWrapper = styled.div`
   margin: 0 auto;
 
 `;
+// text-align: center
 const StyledButton = styled.button`
   border: none;
   padding: 5px 10px;
@@ -23,9 +24,10 @@ const StyledButton = styled.button`
 const CustomAccordion = styled(MuiAccordion)`
   && {
     border: 1px solid #ccc;
-    border-radius: 4px;
     margin-bottom: 10px;
     width: 100%; 
+    border-radius: 8px; /* Apply border-radius to all corners */
+    overflow: hidden; /* Ensure rounded corners are displayed */
     
     
   }
@@ -33,16 +35,19 @@ const CustomAccordion = styled(MuiAccordion)`
 // addapt this const
 const AccordionSummary = styled(MuiAccordionSummary)`
   && {
-    background-color: #f0f0f0;
+
     padding: 10px;
     font-weight: bold;
-    background:#FAF3F0;
+    background-color:#FAF3F0;
+  
+
   }
 `;
 // background:#FAF3F0;
 const AccordionDetails = styled(MuiAccordionDetails)`
   && {
     padding: 10px;
+
   }
 `;
 
@@ -50,6 +55,9 @@ const StyledExpandMoreIcon = styled(ExpandMoreOutlinedIcon)`
   && {
     color: #000;
   }
+`;
+const DownloadButton = styled(StyledButton)`
+
 `;
 
 
@@ -104,11 +112,28 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
     setExpanded(isExpanded ? panel : false);
   };
 
+  function downloadInvitation(item: FaqData) {
+    // Create a temporary anchor element
+    const anchor = document.createElement('a');
+    anchor.href = invitation; // Set the href to the image URL
+    anchor.download = 'invitation.jpg'; // Specify the desired filename
+
+    // Trigger a click event on the anchor element to initiate the download
+    anchor.click();
+
+    // Clean up the temporary anchor element
+    anchor.remove();
+  }
+
+  const openWazeLink = () => {
+    window.open('https://waze.com/ul/hsv8z1u3yr', '_blank'); // Open the link in a new tab
+  };
+
   return (
     <AccordionWrapper>
       {faqData.map((item, index) => (
-        <CustomAccordion key={index} expanded={expanded === `panel${index}`} onChange={handleChange(`panel${index}`)}>
-          <AccordionSummary expandIcon={<ExpandMoreOutlinedIcon />} aria-controls={`panel${index}bh-content`} id={`panel${index}bh-header`}>
+        <CustomAccordion key={index} expanded={expanded === `panel${index}`} onChange={handleChange(`panel${index}`)} sx={{ borderRadius: '8px' }}>
+          <AccordionSummary expandIcon={<ExpandMoreOutlinedIcon />} aria-controls={`panel${index}bh-content`} id={`panel${index}bh-header`} >
             <Typography>{item.question[language as keyof typeof item.question]}</Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -117,27 +142,31 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
               <p>{item.address?.[language as keyof typeof item.address]}</p>
             )}
             <p>{item.accordionDetails?.[language as keyof typeof item.accordionDetails]}</p>
-            {item.promoCodeDetails &&( 
+            {item.promoCodeDetails && (
               <p>{item.promoCodeDetails?.[language as keyof typeof item.promoCodeDetails]}<b>grunwed</b></p>
 
             )}
-            
+
             {item.iframeUrlParking && (
               <>
                 {item.indicationText && (
                   <>
 
-                    <StyledButton>
-
+                    <StyledButton onClick={openWazeLink}>
                       {item.indicationText?.[language as keyof typeof item.indicationText]}
                     </StyledButton>
                   </>
                 )}
                 <iframe src={item.iframeUrlParking} width="100%" height="450" title="Map for Venue"></iframe>
-               {item.address &&(<p>closest train station : ranana west</p>)} 
+                {item.address && (<p>closest train station : ranana west</p>)}
               </>
             )}
-            {item.showInvitation && (<img src={invitation} alt="image not found" width="90%" />)}
+            {item.showInvitation && (
+              <>
+                <DownloadButton onClick={() => downloadInvitation(item)}>Download Invitation</DownloadButton>
+                <img src={invitation} alt="image not found" width="90%" />
+              </>
+            )}
           </AccordionDetails>
         </CustomAccordion>
       ))}

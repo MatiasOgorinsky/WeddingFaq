@@ -32,17 +32,14 @@ const AppWrapper = styled.div`
 `;
 
 const WeddingTitle = styled.h1`
-font-family: 'Dancing Script', cursive;
-font-size: 40px; // Adjust the font size to make it bigger
-font-weight: 100;
+  font-family: 'Roboto', sans-serif;
+  font-size: 48px;
+  font-weight: 300;
   text-align: center;
   margin-bottom: 20px;
-  // Add any other styles you want
+  color: #9A3B3B;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle text shadow to make the font's borders darker */
 `;
-
-
-
-
 
 
 const InfoWrapper = styled.div`
@@ -61,22 +58,22 @@ const App: React.FC = () => {
   const faqData: FaqData[] = [
     {
       question: {
-        en: 'How to get?',
-        es: '¿Cómo llegar?',
+        en: 'How to get to the venue?',
+        es: '¿Cómo llegar al salón?',
       },
       answer: {
-        en: '',
-        es: '',
+        en: 'Hotel: Prima Millenium, Venue: Me-Events',
+        es: 'Hotel: Prima Millenium, Salon: Me-Events',
       },
       address: {
-        en: `Address: Ha-Tidhar St 2, Ra'anana`,
-        es: `Dirección: Ha-Tidhar St 2, Ra'anana`,
+        en: ` The address is: Ha-Tidhar St 2, Ra'anana`,
+        es: `La dirección es: Ha-Tidhar St 2, Ra'anana`,
       },
       indicationText: {
         en: 'Tap here to open in the app',
         es: 'Click aca para abrir en la app',
       },
-      iframeUrlParking: "https://embed.waze.com/iframe?zoom=16&lat=32.192881&lon=34.885046&ct=livemap&pin=1"
+      iframeUrlParking: "https://embed.waze.com/iframe?zoom=16&lat=32.192409&lon=34.884317&ct=livemap&pin=1"
     },
     {
       question: {
@@ -84,18 +81,18 @@ const App: React.FC = () => {
         es: '¿Donde puedo estacionar?',
       },
       answer: {
-        en: '',
+        en: 'An attendand will provide you with a voucher for the parking at this point ,so you can park your car without any cost',
         es: '',
       },
       indicationText: {
         en: 'Tap here to open in the app',
         es: 'Click aca para abrir en la app',
       },
-      iframeUrlParking: "https://embed.waze.com/iframe?zoom=16&lat=32.192881&lon=34.885046&ct=livemap&pin=1",
-      accordionDetails: {
-        en: 'Ask for your parking voucher at the reception so you can park without cost ',
-        es: 'Pedi tu voucher en la recepción asi podés estacionar sin costo alguno',
-      }
+      iframeUrlParking: "https://embed.waze.com/iframe?zoom=16&lat=32.192925&lon=34.884261&ct=livemap&pin=1",
+      // accordionDetails: {
+      //   en: 'Ask for your parking voucher at the reception so you can park without cost ',
+      //   es: 'Pedi tu voucher en la recepción asi podés estacionar sin costo alguno',
+      // }
     },
     {
       question: {
