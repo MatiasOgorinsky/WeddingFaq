@@ -82,7 +82,7 @@ const App: React.FC = () => {
       },
       answer: {
         en: 'An attendand will provide you with a voucher for the parking at this point ,so you can park your car without any cost',
-        es: '',
+        es: 'An attendand will provide you with a voucher for the parking at this point ,so you can park your car without any cost',
       },
       indicationText: {
         en: 'Tap here to open in the app',
@@ -105,7 +105,7 @@ const App: React.FC = () => {
       },
       promoCodeDetails: {
         en: 'The promo code to get a discount is ',
-        es: 'El promo code para obtener un descuento es ',
+        es: 'El codigo de promoción para obtener un descuento es ',
       },
     },
     {
@@ -132,6 +132,7 @@ const App: React.FC = () => {
   ];
 
   const targetDate = new Date(2023, 10, 2, 19, 0);
+
 
   return (
 

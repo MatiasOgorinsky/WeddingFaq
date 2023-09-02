@@ -20,7 +20,16 @@ const StyledButton = styled.button`
   font-weight: bold;
   background: none;
 `;
+const CenteredItemList = styled.div`
+  text-align: center;
+  padding: 0;
 
+`;
+
+const CenteredListItem = styled.li`
+  text-align: left; /* Align the list items to the left */
+  margin-bottom: 5px; /* Add some bottom margin to separate the list items */
+`;
 const CustomAccordion = styled(MuiAccordion)`
   && {
     border: 1px solid #ccc;
@@ -28,6 +37,7 @@ const CustomAccordion = styled(MuiAccordion)`
     width: 100%;
     border-radius: 8px;
     overflow: hidden;
+
   }
 `;
 
@@ -132,6 +142,9 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
   const openWazeLink = () => {
     window.open('https://waze.com/ul/hsv8z1u3yr', '_blank');
   };
+  const openPrimaLink = () => {
+    window.open('https://www.prima.co.il/', '_blank');
+  };
 
   return (
     <AccordionWrapper>
@@ -147,7 +160,20 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
             )}
             <p>{item.accordionDetails?.[language as keyof typeof item.accordionDetails]}</p>
             {item.promoCodeDetails && (
-              <p>{item.promoCodeDetails?.[language as keyof typeof item.promoCodeDetails]}<b>grunwed</b></p>
+              <>
+                <p>{item.promoCodeDetails?.[language as keyof typeof item.promoCodeDetails]}<b>grunwed</b> valid from the 1st of november until the 5th of november</p>
+
+
+                <CenteredItemList>
+                  <CenteredListItem>Single room with breakfast <b>$180</b></CenteredListItem>
+                  <CenteredListItem>Double room with breakfast <b>$195</b></CenteredListItem>
+                  <CenteredListItem>Additional per child in parents' room  <b>$15</b></CenteredListItem>
+                </CenteredItemList>
+                <StyledButton onClick={openPrimaLink}>
+                  To book a room visit the link
+                </StyledButton>
+
+              </>
             )}
 
             {item.iframeUrlParking && (
