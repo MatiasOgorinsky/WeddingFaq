@@ -33,7 +33,7 @@ const AppWrapper = styled.div`
 
 const WeddingTitle = styled.h1`
   font-family: 'Roboto', sans-serif;
-  font-size: 48px;
+  font-size: 38px;
   font-weight: 300;
   text-align: center;
   margin-bottom: 20px;
