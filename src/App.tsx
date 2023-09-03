@@ -153,8 +153,8 @@ const App: React.FC = () => {
         es: 'RSVP',
       },
       answer: {
-        en: 'If you have an Israeli phone number you will recieve an sms on the 12th of October to confirm RSVP',
-        es: 'Si tenes un numero de telefono Israeli, vas a recibir un mensaje de texto el 12 de Octubre para confirmar tu presencia',
+        en: 'If you have an Israeli phone number you will recieve an sms on the 12th of October to confirm RSVP. If you are abroad, we will contact you',
+        es: 'Si tenes un numero de telefono Israelí, vas a recibir un mensaje de texto el 12 de Octubre para confirmar tu presencia. Si estás en el exterior, nosotros te contactaremos',
       },
     },
     {
