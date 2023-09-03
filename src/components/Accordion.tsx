@@ -202,7 +202,7 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
                
                   <AccordionText>There is a specific elevator that goes straight to the venue, so you don't need to go through the hotel</AccordionText>
                   <img src={escalera1} alt="Parking Image" width="100%" />
-                  <AccordionText>There, don't get lost</AccordionText>
+                  <AccordionText>Over there, don't get lost</AccordionText>
                   <img src={escalera2} alt="Parking Image" width="100%" />
 
                   <AccordionText>the closest train station is: Ranana West</AccordionText>
