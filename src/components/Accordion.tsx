@@ -4,6 +4,10 @@ import { Accordion as MuiAccordion, AccordionDetails as MuiAccordionDetails, Acc
 import { LanguageContext } from '../contexts/LanguageContext';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import invitation from '../images/invitation.jpeg';
+import parkingPhoto from '../images/parking.png';
+import map from '../images/map.png';
+import elevator from '../images/elevator.jpeg';
+import h1 from '../images/H1.png';
 import downloadsIcon from "../images/downloads.png";
 
 const AccordionWrapper = styled.div`
@@ -121,6 +125,7 @@ export interface FaqData {
     da?: string;
   };
   showInvitation?: boolean;
+  isParkingImages?: boolean;
 }
 
 const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
@@ -189,6 +194,19 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
                 {item.address && (<p>closest train station : ranana west</p>)}
               </>
             )}
+            {item.isParkingImages && (
+              <>
+                <p>The entrance is on Hasheizaf street</p>
+                <img src={map} alt="Parking Image" width="100%" />
+                <p>Here specifically </p>
+                <img src={parkingPhoto} alt="Parking Image" width="100%" />
+                <p>You need to go up. The parking is from the 1st floor until the 3rd. and each floor has a direct elevator to the venue </p>
+                <img src={elevator} alt="Parking Image" width="100%" />
+                <p>press on H1 and will take you to the wedding hall</p>
+                <img src={h1} alt="Parking Image" width="100%" />
+              </>
+            )}
+
             {item.showInvitation && (
               <>
                 <ButtonContainer>

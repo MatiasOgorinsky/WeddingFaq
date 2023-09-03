@@ -93,6 +93,7 @@ const App: React.FC = () => {
       //   en: 'Ask for your parking voucher at the reception so you can park without cost ',
       //   es: 'Pedi tu voucher en la recepción asi podés estacionar sin costo alguno',
       // }
+      isParkingImages:true,
     },
     {
       question: {
