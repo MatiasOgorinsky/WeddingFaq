@@ -73,8 +73,22 @@ const App: React.FC = () => {
         en: 'Tap here to open in the app',
         es: 'Click aca para abrir en la app',
       },
+      info1: {
+        en: `There is a specific elevator that goes straight to the venue, so you don't need to go through the hotel`,
+        es: 'Hay un ascensor especifico para el salon sin necesidad de tener que pasar por el hotel',
+      },
+      info2: {
+        en: 'Follow the arrow',
+        es: 'Seguí la flecha',
+      },
+      info3: {
+        en: 'And then you press H1 to get to the venue',
+        es: 'Y luego apretas el boton h1 que va directo al salón',
+      },
+
       iframeUrlParking: "https://embed.waze.com/iframe?zoom=16&lat=32.192409&lon=34.884317&ct=livemap&pin=1"
     },
+    
     {
       question: {
         en: 'Where can I park?',
@@ -82,18 +96,31 @@ const App: React.FC = () => {
       },
       answer: {
         en: 'An attendand will provide you with a voucher for the parking at this point ,so you can park your car without any cost',
-        es: 'An attendand will provide you with a voucher for the parking at this point ,so you can park your car without any cost',
+        es: 'Se te proveera a la entrada con un voucher para el estacionamiento, Así podes estacionar sin costo alguno.',
       },
       indicationText: {
         en: 'Tap here to open in the app',
         es: 'Click aca para abrir en la app',
       },
+      info4: {
+        en: 'The entrance is on HaSheizaf street',
+        es: 'La entrada es por la calle Hasheizaf',
+      },
+      info5: {
+        en: 'Here specifically',
+        es: 'Puntualmente aca',
+      },
+      info6: {
+        en: 'The parking is from the 1st floor until the 3rd, and each floor has a direct elevator to the venue',
+        es: 'El estacionamiento es desde el primer hasta el tercer piso y cada piso tiene un ascensor que va directo al salón',
+      },
+      info7: {
+        en: 'And then press on H1 floor to come direct to the venue',
+        es: 'Y después apreta H1 para venir directo al salón',
+      },
+      
       iframeUrlParking: "https://embed.waze.com/iframe?zoom=16&lat=32.192925&lon=34.884261&ct=livemap&pin=1",
-      // accordionDetails: {
-      //   en: 'Ask for your parking voucher at the reception so you can park without cost ',
-      //   es: 'Pedi tu voucher en la recepción asi podés estacionar sin costo alguno',
-      // }
-      isParkingImages:true,
+      isParkingImages: true,
     },
     {
       question: {
@@ -122,13 +149,28 @@ const App: React.FC = () => {
     },
     {
       question: {
+        en: 'RSVP',
+        es: 'RSVP',
+      },
+      answer: {
+        en: 'If you have an Israeli phone number you will recieve an sms on the 12th of October to confirm RSVP',
+        es: 'Si tenes un numero de telefono Israeli, vas a recibir un mensaje de texto el 12 de Octubre para confirmar tu presencia',
+      },
+    },
+    {
+      question: {
         en: 'Gift Details',
         es: 'Detalle regalo',
       },
       answer: {
-        en: '',
-        es: '',
+        en: `Dear friends and loved ones, as we embark on this beautiful journey together, your support and generosity would mean so much to us. If you'd like to contribute to our special day, your wedding gift would be greatly appreciated.`,
+        es: 'Queridos amigos y seres queridos, mientras emprendemos este hermoso viaje juntos, su apoyo y generosidad significarían muchísimo para nosotros. Si desean contribuir a nuestro día especial, su regalo de boda sería muy apreciado."',
       },
+      extraInfoBank: {
+        en: `At the wedding venue, you will find designated areas to deposit your envelopes. Alternatively, if you prefer to send your gift digitally, please find additional details below.`,
+        es: 'En el salón habra un lugar para depositar sobres. De todas maneras si preferis por transferencia dejamos los detalles abajo de nuestra cuenta.',
+      },
+
     },
   ];
 

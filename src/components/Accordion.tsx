@@ -10,7 +10,11 @@ import elevator from '../images/elevator.jpeg';
 import h1 from '../images/H1.png';
 import downloadsIcon from "../images/downloads.png";
 import escalera1 from "../images/escalera1.jpeg";
-import escalera2 from "../images/escalera2.jpeg";
+import escalera3 from "../images/escalera3.jpeg";
+import h2 from "../images/H2.jpeg";
+import lifts from "../images/lifts.jpeg";
+import banco1 from "../images/banco1.jpeg";
+import banco2 from "../images/banco2.jpeg";
 
 const AccordionWrapper = styled.div`
   width: 100%;
@@ -135,6 +139,40 @@ export interface FaqData {
   };
   showInvitation?: boolean;
   isParkingImages?: boolean;
+  extraInfoBank?: {
+    en?: string;
+    es?: string;
+    he?: string;
+    da?: string;
+  };
+  info1?: {
+    en?: string;
+    es?: string;
+  };
+  info2?: {
+    en?: string;
+    es?: string;
+  };
+  info3?: {
+    en?: string;
+    es?: string;
+  };
+  info4?: {
+    en?: string;
+    es?: string;
+  };
+  info5?: {
+    en?: string;
+    es?: string;
+  };
+  info6?: {
+    en?: string;
+    es?: string;
+  };
+  info7?: {
+    en?: string;
+    es?: string;
+  };
 }
 
 const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
@@ -179,7 +217,7 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
                 <CenteredItemList>
                   <CenteredListItem>Single room with breakfast <b>$180</b></CenteredListItem>
                   <CenteredListItem>Double room with breakfast <b>$195</b></CenteredListItem>
-                  <CenteredListItem>Additional per child in parents' room  <b>$15</b></CenteredListItem>
+                  <CenteredListItem>Additional per child in parents room  <b>$15</b></CenteredListItem>
                 </CenteredItemList>
                 <StyledButton onClick={openPrimaLink}>
                   To book a room visit the link
@@ -198,27 +236,27 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
                 )}
                 <iframe src={item.iframeUrlParking} width="100%" height="450" title="Map for Venue"></iframe>
                 {item.address && (
-                <>
-               
-                  <AccordionText>There is a specific elevator that goes straight to the venue, so you don't need to go through the hotel</AccordionText>
-                  <img src={escalera1} alt="Parking Image" width="100%" />
-                  <AccordionText>Over there, don't get lost</AccordionText>
-                  <img src={escalera2} alt="Parking Image" width="100%" />
-
-                  <AccordionText>the closest train station is: Ranana West</AccordionText>
-                </>
+                  <>
+                    <AccordionText>{item.info1?.[language as keyof typeof item.info1]}</AccordionText>
+                    <img src={escalera1} alt="Parking Image" width="100%" />
+                    <AccordionText>{item.info2?.[language as keyof typeof item.info2]}</AccordionText>
+                    <img src={escalera3} alt="Parking Image" width="100%" />
+                    <img src={lifts} alt="Elevators" width="100%" />
+                    <AccordionText>{item.info3?.[language as keyof typeof item.info3]}</AccordionText>
+                    <img src={h2} alt="H1" width="100%" />
+                  </>
                 )}
               </>
             )}
             {item.isParkingImages && (
               <>
-                <AccordionText>The entrance is on Hasheizaf street</AccordionText>
+                <AccordionText>{item.info4?.[language as keyof typeof item.info4]}</AccordionText>
                 <img src={map} alt="Parking Image" width="100%" />
-                <AccordionText>Here specifically</AccordionText>
+                <AccordionText>{item.info5?.[language as keyof typeof item.info5]}</AccordionText>
                 <img src={parkingPhoto} alt="Parking Image" width="100%" />
-                <AccordionText>You need to go up. The parking is from the 1st floor until the 3rd, and each floor has a direct elevator to the venue</AccordionText>
+                <AccordionText>{item.info6?.[language as keyof typeof item.info6]}</AccordionText>
                 <img src={elevator} alt="Parking Image" width="100%" />
-                <AccordionText>Press on H1, and it will take you to the wedding hall</AccordionText>
+                <AccordionText>{item.info7?.[language as keyof typeof item.info7]}</AccordionText>
                 <img src={h1} alt="Parking Image" width="100%" />
               </>
             )}
@@ -231,7 +269,15 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
                     <Icon />
                   </DownloadButton>
                 </ButtonContainer>
-                <img src={invitation} alt="Image not found" width="90%" />
+                <img src={invitation} alt="Image not found" width="100%" />
+              </>
+            )}
+            {item.extraInfoBank && (
+              <>
+                <AccordionText>{item.extraInfoBank?.[language as keyof typeof item.extraInfoBank]}</AccordionText>
+                <p></p>
+                <img src={banco1} alt="Image not found" width="90%" height="80%" />
+                <img src={banco2} alt="Image not found" width="90%" />
               </>
             )}
           </AccordionDetails>
