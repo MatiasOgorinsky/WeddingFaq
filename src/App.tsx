@@ -95,7 +95,7 @@ const App: React.FC = () => {
         es: '¿Donde puedo estacionar?',
       },
       answer: {
-        en: 'An attendand will provide you with a voucher for the parking at this point ,so you can park your car without any cost',
+        en: 'An attendand will provide you with a voucher for the parking at this point, so you can park your car without any cost',
         es: 'Se te proveera a la entrada con un voucher para el estacionamiento, Así podes estacionar sin costo alguno.',
       },
       indicationText: {
