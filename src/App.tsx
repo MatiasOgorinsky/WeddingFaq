@@ -81,7 +81,7 @@ const InfoWrapper = styled.div`
         info1: {
           en: `There is a specific elevator that goes straight to the venue, so you don't need to go through the hotel`,
           es: 'Hay un ascensor específico para el salón sin necesidad de tener que pasar por el hotel',
-          he: 'ישנו מעלית מיוחדת המובילה ישירות למקום האירוע, כך שאין צורך לעבור דרך המלון',
+          he: 'ישנה מעלית מיוחדת המובילה ישירות למקום האירוע, כך שאין צורך לעבור דרך המלון',
         },
         info2: {
           en: 'Follow the arrow',
@@ -105,8 +105,9 @@ const InfoWrapper = styled.div`
         answer: {
           en: 'An attendand will provide you with a voucher for the parking at this point, so you can park your car without any cost',
           es: 'Se te proveerá a la entrada con un voucher para el estacionamiento, Así puedes estacionar sin costo alguno.',
-          he: 'מערך יספק לך שובר לחנייה בנקודה זו, כך שתוכל לחנות את הרכב שלך בלי תקלות',
+          he: ' נציג מטעמנו יספק לך שובר לחנייה בנקודה זו, כך שתוכל לחנות את הרכב שלך בחינם',
         },
+
         indicationText: {
           en: 'Tap here to open in the app',
           es: 'Click aca para abrir en la app',
