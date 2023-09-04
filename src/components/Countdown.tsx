@@ -36,8 +36,6 @@ const CountdownNumber = styled.div`
   padding: 5px 10px; /* Add padding to the number */
 `;
 
-
-
 const CountdownLabel = styled.div`
   font-size: 0.8rem;
   color: #8D8DAA; /* Grey color for labels */
@@ -46,6 +44,14 @@ const CountdownLabel = styled.div`
 const CountdownText = styled.div`
   font-size: 0.8rem;
   color: #555;
+`;
+
+const CountdownDate = styled.div`
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333; /* Adjust the color as needed */
+  margin-bottom: 10px;
+  
 `;
 
 interface CountdownTimerProps {
@@ -86,6 +92,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
 
   return (
     <CountdownContainer>
+      <CountdownDate>2nd of November 19hs</CountdownDate>
       <CountdownRow>
         {countdown.days !== undefined && (
           <CountdownItem>
