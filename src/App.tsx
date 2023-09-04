@@ -63,7 +63,7 @@ const App: React.FC = () => {
       },
       answer: {
         en: 'Hotel: Prima Millenium, Venue: Me-Events',
-        es: 'Hotel: Prima Millenium, Salon: Me-Events',
+        es: 'Hotel: Prima Millenium, Salón: Me-Events',
       },
       address: {
         en: ` The address is: Ha-Tidhar St 2, Ra'anana`,
@@ -75,7 +75,7 @@ const App: React.FC = () => {
       },
       info1: {
         en: `There is a specific elevator that goes straight to the venue, so you don't need to go through the hotel`,
-        es: 'Hay un ascensor especifico para el salon sin necesidad de tener que pasar por el hotel',
+        es: 'Hay un ascensor especifico para el salón sin necesidad de tener que pasar por el hotel',
       },
       info2: {
         en: 'Follow the arrow',
@@ -92,7 +92,7 @@ const App: React.FC = () => {
     {
       question: {
         en: 'Where can I park?',
-        es: '¿Donde puedo estacionar?',
+        es: '¿Dónde puedo estacionar?',
       },
       answer: {
         en: 'An attendand will provide you with a voucher for the parking at this point, so you can park your car without any cost',
@@ -134,6 +134,10 @@ const App: React.FC = () => {
       promoCodeDetails: {
         en: 'The promo code to get a discount is ',
         es: 'El codigo de promoción para obtener un descuento es ',
+      },
+      info7: {
+        en: 'Valid from the 1st of November until the 5th of November',
+        es: 'Válido desde el 1 al 5 de Noviembre',
       },
     },
     {

@@ -213,7 +213,7 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
             <AccordionText>{item.accordionDetails?.[language as keyof typeof item.accordionDetails]}</AccordionText>
             {item.promoCodeDetails && (
               <>
-                <AccordionText>{item.promoCodeDetails?.[language as keyof typeof item.promoCodeDetails]}<b>grunwed</b> valid from the 1st of November until the 5th of November</AccordionText>
+                <AccordionText>{item.promoCodeDetails?.[language as keyof typeof item.promoCodeDetails]}<b>grunwed</b> {item.info7?.[language as keyof typeof item.info7]}</AccordionText>
                 <CenteredItemList>
                   <CenteredListItem>Single room with breakfast <b>$180</b></CenteredListItem>
                   <CenteredListItem>Double room with breakfast <b>$195</b></CenteredListItem>
