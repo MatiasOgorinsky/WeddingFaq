@@ -191,7 +191,7 @@ const InfoWrapper = styled.div`
         },
         answer: {
           en: `Dear friends and loved ones, as we embark on this beautiful journey together, your support and generosity would mean so much to us. If you'd like to contribute to our special day, your wedding gift would be greatly appreciated.`,
-          es: 'Queridos amigos y seres queridos, mientras emprendemos este hermoso viaje juntos, su apoyo y generosidad significarían muchísimo para nosotros. Si desean contribuir a nuestro día especial, su regalo de boda sería muy apreciado."',
+          es: 'Queridos amigos y seres queridos, mientras emprendemos este hermoso viaje juntos, su apoyo y generosidad significarían muchísimo para nosotros. Si desean contribuir a nuestro día especial, su regalo de boda sería muy apreciado.',
           he: 'יקרי יקרותי, בעודנו מתעקשים על מסע זה יחד, תמיכתכם ונדיבותכם יהוו הרבה לנו. אם ברצונכם לתרום ליום המיוחד שלנו, המתנה לחתונה שלכם תתקבל בברכה.',
         },
         extraInfoBank: {
