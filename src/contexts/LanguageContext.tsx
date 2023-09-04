@@ -1,6 +1,6 @@
 import React, { createContext, useState, ReactNode } from 'react';
 
-type Language = 'es' | 'en'; // Los idiomas disponibles
+type Language = 'es' | 'en'| 'he'; // Los idiomas disponibles
 
 interface LanguageContextData {
   language: Language;

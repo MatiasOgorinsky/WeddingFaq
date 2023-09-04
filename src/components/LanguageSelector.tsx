@@ -3,7 +3,7 @@ import styled from "styled-components";
 import LanguageContext from "../contexts/LanguageContext";
 import argentina from "./flags/Flag_of_Argentina.svg.png";
 import usaflag from "./flags/usaflag.png";
-
+import israel from "./flags/Flag_of_Israel.png";
 const FlagsWrapper = styled.div`
   position: absolute;
   top: 20px;
@@ -18,7 +18,7 @@ const FlagButton = styled.button<{ isSelected?: string }>`
   align-items: center;      
   background-color: transparent;
   cursor: pointer;
-  border: ${({ isSelected }) => (isSelected === "en" || isSelected === "es" ? "1px solid" : "none")};
+  border: ${({ isSelected }) => (isSelected === "en" || isSelected === "es" || isSelected === "he"  ? "1px solid" : "none")};
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -36,7 +36,7 @@ const FlagButton = styled.button<{ isSelected?: string }>`
 const LanguageSelector: React.FC = () => {
   const { language, setLanguage } = useContext(LanguageContext);
 
-  const handleChangeLanguage = (lang: "es" | "en") => {
+  const handleChangeLanguage = (lang: "es" | "en"| "he") => {
     setLanguage(lang);
   };
 
@@ -53,6 +53,13 @@ const LanguageSelector: React.FC = () => {
         isSelected={language === "es" ? "es" : undefined}
       >
         <img src={argentina} alt="Spanish" />
+      </FlagButton>
+
+      <FlagButton
+        onClick={() => handleChangeLanguage("he")}
+        isSelected={language === "he" ? "he" : undefined}
+      >
+        <img src={israel} alt="hebrew" />
       </FlagButton>
 
       {/* Add more flag buttons for other languages if needed */}
