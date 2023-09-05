@@ -136,28 +136,28 @@ const InfoWrapper = styled.div`
         iframeUrlParking: "https://embed.waze.com/iframe?zoom=16&lat=32.192925&lon=34.884261&ct=livemap&pin=1",
         isParkingImages: true,
       },
-      {
-        question: {
-          en: 'Staying at the hotel? (must know)',
-          es: '¿Te hospedas en el hotel?',
-          he: 'האם אתה מתארח במלון? (חשוב לדעת)',
-        },
-        answer: {
-          en: '',
-          es: '',
-          he: '',
-        },
-        promoCodeDetails: {
-          en: 'The promo code to get a discount is ',
-          es: 'El código de promoción para obtener un descuento es ',
-          he: 'קוד הפרומו כדי לקבל הנחה הוא ',
-        },
-        info7: {
-          en: 'Valid from the 1st of November until the 5th of November',
-          es: 'Válido desde el 1 al 5 de Noviembre',
-          he: 'תקף מה-1 בנובמבר עד ה-5 בנובמבר',
-        },
-      },
+      // {
+      //   question: {
+      //     en: 'Staying at the hotel? (must know)',
+      //     es: '¿Te hospedas en el hotel?',
+      //     he: 'האם אתה מתארח במלון? (חשוב לדעת)',
+      //   },
+      //   answer: {
+      //     en: '',
+      //     es: '',
+      //     he: '',
+      //   },
+      //   promoCodeDetails: {
+      //     en: 'The promo code to get a discount is ',
+      //     es: 'El código de promoción para obtener un descuento es ',
+      //     he: 'קוד הפרומו כדי לקבל הנחה הוא ',
+      //   },
+      //   info7: {
+      //     en: 'Valid from the 1st of November until the 5th of November',
+      //     es: 'Válido desde el 1 al 5 de Noviembre',
+      //     he: 'תקף מה-1 בנובמבר עד ה-5 בנובמבר',
+      //   },
+      // },
       {
         question: {
           en: 'Invitation details',
