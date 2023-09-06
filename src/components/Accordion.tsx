@@ -210,7 +210,6 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
   };
 
   const isHebrew = language === 'he'; // Check if the language is Hebrew
-  console.log(isHebrew)
   return (
 <AccordionWrapper>
   {faqData.map((item, index) => (
