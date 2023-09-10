@@ -1,12 +1,13 @@
 // App.tsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import GlobalStyles from './GlobalStyles';
 import Accordion from './components/Accordion';
 import LanguageSelector from './components/LanguageSelector';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { FaqData } from './components/Accordion';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import CountdownTimer from './components/Countdown';
+import wedding from './images/wedding.jpeg'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -52,6 +53,46 @@ const InfoWrapper = styled.div`
     max-width: 100%; 
     margin-top: 20px;
 
+  }
+`;
+
+const ImageWrapper = styled.div<{ showImage?: boolean }>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: ${({ showImage }) => (showImage ? 1 : 0)};
+  transition: opacity 1s ease-in-out;
+  box-sizing: border-box; /* Add this line */
+
+  @media (max-width: 768px) {
+    & img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      max-width: 120%;
+
+    }
+
+    ${({ showImage }) =>
+      !showImage &&
+      css`
+        opacity: 0;
+        pointer-events: none;
+      `}
+  }
+
+  @media (min-width: 769px) {
+    & img {
+      width: 90%;
+      height: 100%;
+      object-fit: cover;
+      
+    }
   }
 `;
 
@@ -207,22 +248,42 @@ const InfoWrapper = styled.div`
 
   const targetDate = new Date(2023, 10, 2, 19, 0);
 
+  const [showImage, setShowImage] = useState(true);
+  const [imageVisible, setImageVisible] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowImage(false);
+
+      setTimeout(() => {
+        setImageVisible(false);
+      }, 3000);
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
-
-    <LanguageProvider>
-      <GlobalStyles />
-      <AppWrapper>
-        <LanguageSelector />
-        <InfoWrapper>
-          <WeddingTitle>Caroline & Matias's Wedding</WeddingTitle>
-          {/* <h1>Frequently Asked Questions</h1> */}
-          <CountdownTimer targetDate={targetDate} />
-          <Accordion faqData={faqData} />
-        </InfoWrapper>
-      </AppWrapper>
-    </LanguageProvider>
-
+    <div>
+      {imageVisible && (
+        <ImageWrapper showImage={showImage}>
+          <img src={wedding} alt="Wedding" />
+        </ImageWrapper>
+      )}
+      {!imageVisible && (
+        <LanguageProvider>
+          <GlobalStyles />
+          <AppWrapper>
+            <LanguageSelector />
+            <InfoWrapper>
+              <WeddingTitle>Caroline & Matias's Wedding</WeddingTitle>
+              <CountdownTimer targetDate={targetDate} />
+              <Accordion faqData={faqData} />
+            </InfoWrapper>
+          </AppWrapper>
+        </LanguageProvider>
+      )}
+    </div>
   );
 };
 
