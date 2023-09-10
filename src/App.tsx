@@ -56,11 +56,22 @@ const ImageWrapper = styled.div<{ showImage?: boolean }>`
   position: absolute;
   top: 0;
   left: 0;
-
+  width: 100%;
+  height: 100%;
   background: url(${wedding}) no-repeat center center;
   background-size: cover;
   opacity: ${({ showImage }) => (showImage ? 1 : 0)};
-  transition: opacity 3s ease-in-out;
+  transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+
+  ${({ showImage }) =>
+    !showImage &&
+    css`
+      transform: perspective(1200px) rotateY(180deg);
+    `}
+
+  @media (min-width: 768px) {
+    transform: none;
+  }
 `;
 
 
