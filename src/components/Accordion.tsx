@@ -301,7 +301,7 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
             <img src={banco1} alt="Image not found" width="90%" height="80%" />
 
             <p> Leumi Bank <b>Branch</b> 858 </p>
-            <p>  <b>Account number</b> 1078904</p>
+            <p>  <b>Account number</b> 10078904</p>
             <img src={banco2} alt="Image not found" width="90%" />
             <p> <b>Swift Code</b> LUMIILITXXX</p>
             <p> <b>IBAN</b> IL600108580000010078904</p>
