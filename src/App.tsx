@@ -67,7 +67,9 @@ const ImageWrapper = styled.div<{ showImage?: boolean }>`
     ${({ showImage }) =>
       !showImage &&
       css`
-        transform: perspective(1200px) rotateY(180deg);
+        opacity: 0;
+        visibility: hidden;
+        transform: none;
       `}
   }
 
@@ -75,6 +77,7 @@ const ImageWrapper = styled.div<{ showImage?: boolean }>`
     transform: none;
   }
 `;
+
 
 
 
