@@ -236,8 +236,8 @@ const ImageWrapper = styled.div<{ showImage?: boolean }>`
           he: 'אורחים יקרים,  בעוד אנו יוצאים למסע משותף,  תמיכתכם ונדיבותכם חשובה לנו מאוד. אם ברצונכם להשתתף במתנת חתונה עבורנו,  ביום המיוחד שלנו, נעריך את זה מאוד!',
         },
         extraInfoBank: {
-          en: `At the wedding venue, you will find designated areas to deposit your envelopes. Alternatively, if you prefer to send your gift digitally, please find additional details below.`,
-          es: 'En el salón habrá un lugar para depositar sobres. De todas maneras si prefieren por transferencia dejamos los detalles abajo de nuestra cuenta.',
+          en: `At the wedding venue, you will find designated areas to deposit your envelopes. Alternatively, if you prefer to send your gift digitally, you will be provided with a link to do it with your credit card.`,
+          es: 'En el salón habrá un lugar para depositar sobres. Por otro lado si preferis hacerlo digitalmente, recibirás un link para poder hacerlo con tarjeta de credito.',
           he: 'במקום האירוע,  תמצאו איזור עם מעטפות. לחילופין, אם תעדיפו לתת מתנה דיגיטלית, הפרטים להעברה בנקאית רשומים מטה:',
 
         },
@@ -265,14 +265,14 @@ const ImageWrapper = styled.div<{ showImage?: boolean }>`
 
   return (
     <div>
-      {imageVisible && (
+      {/* {imageVisible && (
         <ImageWrapper showImage={showImage}>
           <img src={wedding} alt="Wedding" />
         </ImageWrapper>
-      )}
+      )} */}
       {!imageVisible && (
         <LanguageProvider>
-          <GlobalStyles />
+          {/* <GlobalStyles />
           <AppWrapper>
             <LanguageSelector />
             <InfoWrapper>
@@ -280,7 +280,7 @@ const ImageWrapper = styled.div<{ showImage?: boolean }>`
               <CountdownTimer targetDate={targetDate} />
               <Accordion faqData={faqData} />
             </InfoWrapper>
-          </AppWrapper>
+          </AppWrapper> */}
         </LanguageProvider>
       )}
     </div>
