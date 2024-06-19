@@ -8,7 +8,8 @@ import { FaqData } from "./components/Accordion";
 import styled, { css } from "styled-components";
 import CountdownTimer from "./components/Countdown";
 // import wedding2 from "./images/wedding2.jpeg";
-import wedding from "./images/weddingphot.jpg";
+// import wedding from "./images/weddingphot.jpg";
+import weddingfoto from "./images/weddingfoto.png";
 
 const AppWrapper = styled.div`
   display: flex;
@@ -263,24 +264,24 @@ const App: React.FC = () => {
 
   return (
     <div>
-      {/* {imageVisible && (
+      {imageVisible && (
         <ImageWrapper showImage={showImage}>
-          <img src={wedding} alt="Wedding" />
+          <img src={weddingfoto} alt="Wedding" />
         </ImageWrapper>
-      )} */}
-      {/* {!imageVisible && ( */}
-      <LanguageProvider>
-        <GlobalStyles />
-        <AppWrapper>
-          <LanguageSelector />
-          <InfoWrapper>
-            <WeddingTitle>Caroline & Matias's Wedding</WeddingTitle>
-            <CountdownTimer targetDate={targetDate} />
-            <Accordion faqData={faqData} />
-          </InfoWrapper>
-        </AppWrapper>
-      </LanguageProvider>
-      {/* )} */}
+      )}
+      {!imageVisible && (
+        <LanguageProvider>
+          <GlobalStyles />
+          <AppWrapper>
+            <LanguageSelector />
+            <InfoWrapper>
+              <WeddingTitle>Caroline & Matias's Wedding</WeddingTitle>
+              <CountdownTimer targetDate={targetDate} />
+              <Accordion faqData={faqData} />
+            </InfoWrapper>
+          </AppWrapper>
+        </LanguageProvider>
+      )}
     </div>
   );
 };
