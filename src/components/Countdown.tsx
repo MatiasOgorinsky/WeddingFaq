@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 const CountdownContainer = styled.div`
   display: flex;
@@ -7,10 +7,10 @@ const CountdownContainer = styled.div`
   align-items: center;
   text-align: center;
   margin-bottom: 20px;
-  background-color: #FAF3F0; 
+  background-color: #faf3f0;
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 `;
 
 const CountdownRow = styled.div`
@@ -18,7 +18,6 @@ const CountdownRow = styled.div`
   align-items: center;
   margin-top: 1rem;
 `;
-
 
 const CountdownItem = styled.div`
   text-align: center;
@@ -31,7 +30,7 @@ const CountdownItem = styled.div`
 const CountdownNumber = styled.div`
   font-size: 2rem;
   font-weight: bold;
-  color: #9A3B3B; /* White text color */
+  color: #9a3b3b; /* White text color */
   -webkit-text-stroke: 0.5px black; /* Thin black border for WebKit browsers */
   text-stroke: 0.5px black; /* Thin black border for non-WebKit browsers */
   padding: 5px 10px; /* Add padding to the number */
@@ -39,22 +38,19 @@ const CountdownNumber = styled.div`
 
 const CountdownLabel = styled.div`
   font-size: 0.7rem;
-  
 `;
 
 const CountdownText = styled.div`
-font-size: 1rem;
-font-weight: normal;
-font-family: 'YourFontName', sans-serif; /* Use a custom font */
-margin-bottom: 10px;
-
+  font-size: 1rem;
+  font-weight: normal;
+  font-family: "YourFontName", sans-serif; /* Use a custom font */
+  margin-bottom: 10px;
 `;
 
 const CountdownDate = styled.div`
   font-size: 1.2rem;
   font-weight: normal;
-  font-family: 'YourFontName', sans-serif; /* Use a custom font */
-
+  font-family: "YourFontName", sans-serif; /* Use a custom font */
 `;
 
 interface CountdownTimerProps {
@@ -95,7 +91,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
 
   return (
     <CountdownContainer>
-      <CountdownDate>2nd of November 7pm</CountdownDate>
+      <CountdownDate>12th of September 7pm</CountdownDate>
       <CountdownRow>
         {countdown.days !== undefined && (
           <CountdownItem>
@@ -121,7 +117,6 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
             <CountdownLabel>Seconds</CountdownLabel>
           </CountdownItem>
         )}
-
       </CountdownRow>
 
       <CountdownRow>

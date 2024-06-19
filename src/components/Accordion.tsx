@@ -1,13 +1,13 @@
-import React, { useContext, useState } from 'react';
-import styled from 'styled-components';
-import { Accordion as MuiAccordion, AccordionDetails as MuiAccordionDetails, AccordionSummary as MuiAccordionSummary, Typography } from '@mui/material';
-import { LanguageContext } from '../contexts/LanguageContext';
-import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
-import invitation from '../images/invitation.jpeg';
-import parkingPhoto from '../images/parking.png';
-import map from '../images/map.png';
-import elevator from '../images/elevator.jpeg';
-import h1 from '../images/H1.png';
+import React, { useContext, useState } from "react";
+import styled from "styled-components";
+import { Accordion as MuiAccordion, AccordionDetails as MuiAccordionDetails, AccordionSummary as MuiAccordionSummary, Typography } from "@mui/material";
+import { LanguageContext } from "../contexts/LanguageContext";
+import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
+import invitation from "../images/invitation.jpeg";
+import parkingPhoto from "../images/parking.png";
+import map from "../images/map.png";
+import elevator from "../images/elevator.jpeg";
+import h1 from "../images/H1.png";
 import downloadsIcon from "../images/downloads.png";
 import escalera1 from "../images/escalera1.jpeg";
 import escalera3 from "../images/escalera3.jpeg";
@@ -40,9 +40,9 @@ const CenteredItemList = styled.div`
 //   margin-bottom: 5px;
 // `;
 
-const CenteredListItem = styled.li<{isHebrew?:boolean}>`
-margin-bottom: 5px;
-  text-align: ${({isHebrew}) => (isHebrew ? 'right' : 'left')};
+const CenteredListItem = styled.li<{ isHebrew?: boolean }>`
+  margin-bottom: 5px;
+  text-align: ${({ isHebrew }) => (isHebrew ? "right" : "left")};
 `;
 
 const CustomAccordion = styled(MuiAccordion)`
@@ -59,7 +59,7 @@ const AccordionSummary = styled(MuiAccordionSummary)`
   && {
     padding: 10px;
     font-weight: bold;
-    background-color: #FAF3F0;
+    background-color: #faf3f0;
   }
 `;
 
@@ -95,11 +95,11 @@ const ButtonContainer = styled.div`
   margin: 10px;
 `;
 
-const AccordionText = styled.div<{isHebrew?:boolean}>`
+const AccordionText = styled.div<{ isHebrew?: boolean }>`
   margin: 0; /* Reset margin to 0 */
 
   padding: 10px;
-  text-align: ${({isHebrew}) => (isHebrew ? 'right' : 'left')};
+  text-align: ${({ isHebrew }) => (isHebrew ? "right" : "left")};
 `;
 
 export interface FaqData {
@@ -144,6 +144,12 @@ export interface FaqData {
   showInvitation?: boolean;
   isParkingImages?: boolean;
   extraInfoBank?: {
+    en?: string;
+    es?: string;
+    he?: string;
+    da?: string;
+  };
+  extraInfoBankTransfers?: {
     en?: string;
     es?: string;
     he?: string;
@@ -195,123 +201,139 @@ const Accordion: React.FC<{ faqData: FaqData[] }> = ({ faqData }) => {
   };
 
   function downloadInvitation(item: FaqData) {
-    const anchor = document.createElement('a');
+    const anchor = document.createElement("a");
     anchor.href = invitation;
-    anchor.download = 'invitation.jpg';
+    anchor.download = "invitation.jpg";
     anchor.click();
     anchor.remove();
   }
 
   const openWazeLink = () => {
-    window.open('https://waze.com/ul/hsv8z1u3yr', '_blank');
+    window.open("https://waze.com/ul/hsv8z1u3yr", "_blank");
   };
   const openPrimaLink = () => {
-    window.open('https://www.prima.co.il/', '_blank');
+    window.open("https://www.prima.co.il/", "_blank");
   };
 
-  const isHebrew = language === 'he'; // Check if the language is Hebrew
+  const isHebrew = language === "he"; // Check if the language is Hebrew
   return (
-<AccordionWrapper>
-  {faqData.map((item, index) => (
-    <CustomAccordion
-      key={index}
-      expanded={expanded === `panel${index}`}
-      onChange={handleChange(`panel${index}`)}
-      sx={{
-        borderRadius: '8px',
-        direction: isHebrew ? 'rtl' : 'ltr',
-      }}
-    >
-      <AccordionSummary expandIcon={<ExpandMoreOutlinedIcon />} aria-controls={`panel${index}bh-content`} id={`panel${index}bh-header`} >
-        <Typography>{item.question[language as keyof typeof item.question]}</Typography>
-      </AccordionSummary>
-      <AccordionDetails>
-        {/* Pass the isHebrew prop to each AccordionText component */}
-        <AccordionText isHebrew={isHebrew}>{item.answer[language as keyof typeof item.answer]}</AccordionText>
-        {/* ... (rest of your component remains the same) */}
-        {item.address && (
-          <AccordionText isHebrew={isHebrew}>{item.address?.[language as keyof typeof item.address]}</AccordionText>
-        )}
-        <AccordionText isHebrew={isHebrew}>{item.accordionDetails?.[language as keyof typeof item.accordionDetails]}</AccordionText>
-        {item.promoCodeDetails && (
-          <>
-            <AccordionText isHebrew={isHebrew}>{item.promoCodeDetails?.[language as keyof typeof item.promoCodeDetails]}<b>grunwed</b> {item.info7?.[language as keyof typeof item.info7]}</AccordionText>
-            <CenteredItemList>
-              <CenteredListItem isHebrew={isHebrew}>Single room with breakfast <b>$180</b></CenteredListItem>
-              <CenteredListItem isHebrew={isHebrew}>Double room with breakfast <b>$195</b></CenteredListItem>
-              <CenteredListItem isHebrew={isHebrew}>Additional per child in parents room  <b>$15</b></CenteredListItem>
-            </CenteredItemList>
-            <StyledButton onClick={openPrimaLink}>
-              To book a room visit the link
-            </StyledButton>
-          </>
-        )}
-
-        {item.iframeUrlParking && (
-          <>
-            {item.indicationText && (
+    <AccordionWrapper>
+      {faqData.map((item, index) => (
+        <CustomAccordion
+          key={index}
+          expanded={expanded === `panel${index}`}
+          onChange={handleChange(`panel${index}`)}
+          sx={{
+            borderRadius: "8px",
+            direction: isHebrew ? "rtl" : "ltr",
+          }}
+        >
+          <AccordionSummary expandIcon={<ExpandMoreOutlinedIcon />} aria-controls={`panel${index}bh-content`} id={`panel${index}bh-header`}>
+            <Typography>{item.question[language as keyof typeof item.question]}</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            {/* Pass the isHebrew prop to each AccordionText component */}
+            <AccordionText isHebrew={isHebrew}>{item.answer[language as keyof typeof item.answer]}</AccordionText>
+            {/* ... (rest of your component remains the same) */}
+            {item.address && <AccordionText isHebrew={isHebrew}>{item.address?.[language as keyof typeof item.address]}</AccordionText>}
+            <AccordionText isHebrew={isHebrew}>{item.accordionDetails?.[language as keyof typeof item.accordionDetails]}</AccordionText>
+            {item.promoCodeDetails && (
               <>
-                <StyledButton onClick={openWazeLink}>
-                  {item.indicationText?.[language as keyof typeof item.indicationText]}
-                </StyledButton>
+                <AccordionText isHebrew={isHebrew}>
+                  {item.promoCodeDetails?.[language as keyof typeof item.promoCodeDetails]}
+                  <b>grunwed</b> {item.info7?.[language as keyof typeof item.info7]}
+                </AccordionText>
+                <CenteredItemList>
+                  <CenteredListItem isHebrew={isHebrew}>
+                    Single room with breakfast <b>$180</b>
+                  </CenteredListItem>
+                  <CenteredListItem isHebrew={isHebrew}>
+                    Double room with breakfast <b>$195</b>
+                  </CenteredListItem>
+                  <CenteredListItem isHebrew={isHebrew}>
+                    Additional per child in parents room <b>$15</b>
+                  </CenteredListItem>
+                </CenteredItemList>
+                <StyledButton onClick={openPrimaLink}>To book a room visit the link</StyledButton>
               </>
             )}
-            <iframe src={item.iframeUrlParking} width="100%" height="450" title="Map for Venue"></iframe>
-            {item.address && (
+
+            {item.iframeUrlParking && (
               <>
-                <AccordionText isHebrew={isHebrew}>{item.info1?.[language as keyof typeof item.info1]}</AccordionText>
-                <img src={escalera1} alt="Parking Image" width="100%" />
-                <AccordionText isHebrew={isHebrew}>{item.info2?.[language as keyof typeof item.info2]}</AccordionText>
-                <img src={escalera3} alt="Parking Image" width="100%" />
-                <img src={lifts} alt="Elevators" width="100%" />
-                <AccordionText isHebrew={isHebrew}>{item.info3?.[language as keyof typeof item.info3]}</AccordionText>
-                <img src={h2} alt="H1" width="100%" />
+                {item.indicationText && (
+                  <>
+                    <StyledButton onClick={openWazeLink}>{item.indicationText?.[language as keyof typeof item.indicationText]}</StyledButton>
+                  </>
+                )}
+                <iframe src={item.iframeUrlParking} width="100%" height="450" title="Map for Venue"></iframe>
+                {item.address && (
+                  <>
+                    <AccordionText isHebrew={isHebrew}>{item.info1?.[language as keyof typeof item.info1]}</AccordionText>
+                    <img src={escalera1} alt="Parking Image" width="100%" />
+                    <AccordionText isHebrew={isHebrew}>{item.info2?.[language as keyof typeof item.info2]}</AccordionText>
+                    <img src={escalera3} alt="Parking Image" width="100%" />
+                    <img src={lifts} alt="Elevators" width="100%" />
+                    <AccordionText isHebrew={isHebrew}>{item.info3?.[language as keyof typeof item.info3]}</AccordionText>
+                    <img src={h2} alt="H1" width="100%" />
+                  </>
+                )}
               </>
             )}
-          </>
-        )}
-        {item.isParkingImages && (
-          <>
-            <AccordionText isHebrew={isHebrew}>{item.info4?.[language as keyof typeof item.info4]}</AccordionText>
-            <img src={map} alt="Parking Image" width="100%" />
-            <AccordionText isHebrew={isHebrew}>{item.info5?.[language as keyof typeof item.info5]}</AccordionText>
-            <img src={parkingPhoto} alt="Parking Image" width="100%" />
-            <AccordionText isHebrew={isHebrew}>{item.info6?.[language as keyof typeof item.info6]}</AccordionText>
-            <img src={elevator} alt="Parking Image" width="100%" />
-            <AccordionText isHebrew={isHebrew}>{item.info7?.[language as keyof typeof item.info7]}</AccordionText>
-            <img src={h1} alt="Parking Image" width="100%" />
-          </>
-        )}
+            {item.isParkingImages && (
+              <>
+                <AccordionText isHebrew={isHebrew}>{item.info4?.[language as keyof typeof item.info4]}</AccordionText>
+                <img src={map} alt="Parking Image" width="100%" />
+                <AccordionText isHebrew={isHebrew}>{item.info5?.[language as keyof typeof item.info5]}</AccordionText>
+                <img src={parkingPhoto} alt="Parking Image" width="100%" />
+                <AccordionText isHebrew={isHebrew}>{item.info6?.[language as keyof typeof item.info6]}</AccordionText>
+                <img src={elevator} alt="Parking Image" width="100%" />
+                <AccordionText isHebrew={isHebrew}>{item.info7?.[language as keyof typeof item.info7]}</AccordionText>
+                <img src={h1} alt="Parking Image" width="100%" />
+              </>
+            )}
 
-        {item.showInvitation && (
-          <>
-            <ButtonContainer>
-              <Typography>Download invitation</Typography>
-              <DownloadButton onClick={() => downloadInvitation(item)}>
-                <Icon />
-              </DownloadButton>
-            </ButtonContainer>
-            <img src={invitation} alt="Image not found" width="100%" />
-          </>
-        )}
-        {item.extraInfoBank && (
-          <>
-            <AccordionText isHebrew={isHebrew}>{item.extraInfoBank?.[language as keyof typeof item.extraInfoBank]}</AccordionText>
-            <p></p>
-            <img src={banco1} alt="Image not found" width="90%" height="80%" />
+            {item.showInvitation && (
+              <>
+                <ButtonContainer>
+                  <Typography>Download invitation</Typography>
+                  <DownloadButton onClick={() => downloadInvitation(item)}>
+                    <Icon />
+                  </DownloadButton>
+                </ButtonContainer>
+                <img src={invitation} alt="Image not found" width="100%" />
+              </>
+            )}
+            {item.extraInfoBank && (
+              <>
+                <AccordionText isHebrew={isHebrew}>{item.extraInfoBank?.[language as keyof typeof item.extraInfoBank]}</AccordionText>
+                <AccordionText isHebrew={isHebrew}>{item.extraInfoBankTransfers?.[language as keyof typeof item.extraInfoBankTransfers]}</AccordionText>
 
-            <p> Leumi Bank <b>Branch</b> 858 </p>
-            <p>  <b>Account number</b> 10078904</p>
-            <img src={banco2} alt="Image not found" width="90%" />
-            <p> <b>Swift Code</b> LUMIILITXXX</p>
-            <p> <b>IBAN</b> IL600108580000010078904</p>
-          </>
-        )}
-      </AccordionDetails>
-    </CustomAccordion>
-  ))}
-</AccordionWrapper>
+                <p></p>
+                <img src={banco1} alt="Image not found" width="90%" height="80%" />
 
+                <p>
+                  {" "}
+                  Leumi Bank <b>Branch</b> 858{" "}
+                </p>
+                <p>
+                  {" "}
+                  <b>Account number</b> 10078904
+                </p>
+                <img src={banco2} alt="Image not found" width="90%" />
+                <p>
+                  {" "}
+                  <b>Swift Code</b> LUMIILITXXX
+                </p>
+                <p>
+                  {" "}
+                  <b>IBAN</b> IL600108580000010078904
+                </p>
+              </>
+            )}
+          </AccordionDetails>
+        </CustomAccordion>
+      ))}
+    </AccordionWrapper>
   );
 };
 
