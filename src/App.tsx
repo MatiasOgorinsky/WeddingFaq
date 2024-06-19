@@ -263,24 +263,24 @@ const App: React.FC = () => {
 
   return (
     <div>
-      {imageVisible && (
+      {/* {imageVisible && (
         <ImageWrapper showImage={showImage}>
           <img src={wedding} alt="Wedding" />
         </ImageWrapper>
-      )}
-      {!imageVisible && (
-        <LanguageProvider>
-          <GlobalStyles />
-          <AppWrapper>
-            <LanguageSelector />
-            <InfoWrapper>
-              <WeddingTitle>Caroline & Matias's Wedding</WeddingTitle>
-              <CountdownTimer targetDate={targetDate} />
-              <Accordion faqData={faqData} />
-            </InfoWrapper>
-          </AppWrapper>
-        </LanguageProvider>
-      )}
+      )} */}
+      {/* {!imageVisible && ( */}
+      <LanguageProvider>
+        <GlobalStyles />
+        <AppWrapper>
+          <LanguageSelector />
+          <InfoWrapper>
+            <WeddingTitle>Caroline & Matias's Wedding</WeddingTitle>
+            <CountdownTimer targetDate={targetDate} />
+            <Accordion faqData={faqData} />
+          </InfoWrapper>
+        </AppWrapper>
+      </LanguageProvider>
+      {/* )} */}
     </div>
   );
 };
