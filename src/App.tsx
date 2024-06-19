@@ -7,7 +7,8 @@ import { LanguageProvider } from "./contexts/LanguageContext";
 import { FaqData } from "./components/Accordion";
 import styled, { css } from "styled-components";
 import CountdownTimer from "./components/Countdown";
-import wedding2 from "./images/wedding2.jpeg";
+// import wedding2 from "./images/wedding2.jpeg";
+import wedding from "./images/weddingphot.jpg";
 
 const AppWrapper = styled.div`
   display: flex;
@@ -264,7 +265,7 @@ const App: React.FC = () => {
     <div>
       {imageVisible && (
         <ImageWrapper showImage={showImage}>
-          <img src={wedding2} alt="Wedding" />
+          <img src={wedding} alt="Wedding" />
         </ImageWrapper>
       )}
       {!imageVisible && (
